@@ -1,6 +1,25 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import "../styles/globals.css";
+import type { AppProps } from "next/app";
+import Header from "../components/Header";
+import React from "react";
+import {
+  Hydrate,
+  QueryClient,
+  QueryClientProvider,
+} from "@tanstack/react-query";
+import { RecoilRoot } from "recoil";
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  const [queryClient] = React.useState(() => new QueryClient());
+
+  return (
+    <RecoilRoot>
+      <QueryClientProvider client={queryClient}>
+        <Hydrate state={pageProps.degydratedState}>
+          <Header />
+          <Component {...pageProps} />
+        </Hydrate>
+      </QueryClientProvider>
+    </RecoilRoot>
+  );
 }
