@@ -10,7 +10,7 @@ const List = ({ projectList }) => {
     <section className="2xl:max-w-[1280px] justify-center items-center bg-green-300 mx-auto flex flex-wrap gap-6 p-2">
       {projectList.map((pl, i) => (
         <Link href={`project/${pl.questId}`} key={i}>
-          <PostCard key={pl.questId} />
+          <PostCard key={pl.questId} pList={pl} />
         </Link>
       ))}
     </section>
