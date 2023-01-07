@@ -13,7 +13,7 @@ const DetailPage = ({ projectDetail }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>NICE TO MEET YOU</div>
-      <ProjectDetail />
+      <ProjectDetail projectDetail={projectDetail} />
     </>
   );
 };
@@ -29,8 +29,11 @@ export async function getStaticPaths() {
   return { paths, fallback: false };
 }
 
-export async function getStaticProps() {
-  const data = await fetch("https://g10000.shop/api/quests/112");
+export async function getStaticProps(context) {
+  console.log(context);
+  const { projectId } = context.params;
+
+  const data = await fetch(`https://g10000.shop/api/quests/${projectId}`);
   const projectDetail = await data.json();
   return {
     props: {

@@ -1,9 +1,10 @@
 import Head from "next/head";
 import InfoSlider from "../../components/Main/InfoSlider";
+import CreateBtn from "../../components/Project/Create/CreateBtn";
 import Filter from "../../components/Project/Filter";
 import List from "../../components/Project/List";
 
-export default function ProjectList() {
+export default function ProjectList({ projectList }) {
   return (
     <>
       <Head>
@@ -14,7 +15,19 @@ export default function ProjectList() {
       </Head>
       <InfoSlider />
       <Filter />
-      <List />
+      <List projectList={projectList} />
+      <CreateBtn />
     </>
   );
+}
+
+export async function getStaticProps() {
+  const data = await fetch("https://g10000.shop/api/quests");
+  const projectList = await data.json();
+  console.log(projectList);
+  return {
+    props: {
+      projectList,
+    },
+  };
 }
