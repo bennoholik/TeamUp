@@ -1,10 +1,18 @@
+import Image from "next/image";
+
 const ProjectDetail = ({ projectDetail }) => {
   return (
     <div className="max-w-[700px] w-full mx-auto py-8 px-6 bg-yellow-300">
       <h1 className="font-bold text-2xl"> {projectDetail.title}</h1>
       <div className="flex justify-between  mt-6">
         <div className="flex gap-x-3">
-          <div className="w-10 h-10 rounded-full bg-gray-300" />
+          <Image
+            src={projectDetail.profileImg}
+            alt="profileImg"
+            className="w-10 h-10 rounded-full bg-gray-300"
+            width={40}
+            height={40}
+          />
           <span>{projectDetail.nickname}</span>
         </div>
         <span>2023-01-04</span>
