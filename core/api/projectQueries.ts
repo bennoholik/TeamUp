@@ -15,5 +15,9 @@ export const projectQueries = {
     }
   )
   },
-
+ useGetProjectDetail: (projectId: string) => {
+  return useQuery<IProject>(["project",projectId], ()=>{
+    return projectApi.getProjectDetail(projectId)
+  })
+ }
 }

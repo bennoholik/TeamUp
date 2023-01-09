@@ -1,9 +1,11 @@
+import { dehydrate, QueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import Head from "next/head";
 import ProjectDetail from "../../components/Project/Detail/Detail";
+import { projectApi } from "../../core/api/apis";
+import { IProject } from "../../core/types/projectType";
 
-const DetailPage = ({ projectDetail }) => {
-  console.log(projectDetail);
+const DetailPage = () => {
   return (
     <>
       <Head>
@@ -13,31 +15,42 @@ const DetailPage = ({ projectDetail }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>NICE TO MEET YOU</div>
-      <ProjectDetail projectDetail={projectDetail} />
+      <ProjectDetail />
     </>
   );
 };
 
 export async function getStaticPaths() {
-  const res = await fetch("https://g10000.shop/api/quests");
-  const projects = await res.json();
+  const projects = await projectApi.getProjectList();
+  console.log(projects);
 
-  const paths = projects.map((pj) => ({
+  const paths = projects.map((pj: IProject) => ({
     params: { projectId: pj.questId.toString() },
   }));
 
   return { paths, fallback: false };
 }
 
-export async function getStaticProps(context) {
-  console.log(context);
-  const { projectId } = context.params;
+export async function getStaticProps({
+  params: projectId,
+}: {
+  params: string;
+}) {
+  // console.log(params);
+  // const { projectId } = params;
 
-  const data = await fetch(`https://g10000.shop/api/quests/${projectId}`);
-  const projectDetail = await data.json();
+  // const data = await fetch(`https://g10000.shop/api/quests/${projectId}`);
+  // const projectDetail = await data.json();
+
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery(["project", projectId], () => {
+    return projectApi.getProjectDetail(projectId);
+  });
+
   return {
     props: {
-      projectDetail,
+      dehydratedState: dehydrate(queryClient),
     },
   };
 }

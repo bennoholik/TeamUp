@@ -6,5 +6,6 @@ export const mainpageApi = {
 }
 
 export const projectApi = {
-  getProjectList : async () => {const {data} = await instance.get("api/quests"); return data}
+  getProjectList : async () => {const {data} = await instance.get("api/quests"); return data},
+  getProjectDetail : async (projectId:string) => {const {data} = await instance.get(`api/quests/${projectId}`); return data}
 }

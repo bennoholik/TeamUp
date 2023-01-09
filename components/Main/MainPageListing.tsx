@@ -24,7 +24,7 @@ const MainPageListing = () => {
 
         <div className="flex flex-wrap gap-10 mt-20 justify-center items-center">
           {recentList?.map((rl) => (
-            <Link href={`project/${rl.recentQuestId}`} key={rl.mainQuestId}>
+            <Link href={`project/${rl.recentQuestId}`} key={rl.recentQuestId}>
               <PostCard key={rl.recentQuestId} pList={rl} />
             </Link>
           ))}

@@ -1,33 +1,46 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
+import { projectQueries } from "../../../core/api/projectQueries";
 
-const ProjectDetail = ({ projectDetail }) => {
+const ProjectDetail = () => {
+  const router = useRouter();
+
+  const { projectId } = router.query;
+
+  const { data: projectDetail } = projectQueries.useGetProjectDetail(
+    String(projectId)
+  );
+
   return (
-    <div className="max-w-[700px] w-full mx-auto py-8 px-6 bg-yellow-300">
-      <h1 className="font-bold text-2xl"> {projectDetail.title}</h1>
+    <div className="max-w-[700px] w-full mx-auto py-8 px-6">
+      <h1 className="font-bold text-2xl"> {projectDetail?.title}</h1>
       <div className="flex justify-between  mt-6">
         <div className="flex gap-x-3">
           <Image
-            src={projectDetail.profileImg}
+            src={projectDetail ? projectDetail.profileImg : ""}
             alt="profileImg"
             className="w-10 h-10 rounded-full bg-gray-300"
             width={40}
             height={40}
           />
-          <span>{projectDetail.nickname}</span>
+          <span>{projectDetail?.nickname}</span>
         </div>
         <span>2023-01-04</span>
       </div>
 
       <div className="mt-10 flex flex-col gap-y-8">
         <div className="grid grid-cols-2">
-          <span>작업기간 : {projectDetail.duration}주</span>
+          <span>작업기간 : {projectDetail?.duration}주</span>
           <span>시작예정 : 2023.01.04</span>
         </div>
         <div className="flex">
-          <span className="mr-4">기술 스택</span>
-          <ul className="flex gap-x-3 flex-wrap">
-            {projectDetail.stacks.map((stack, idx) => (
-              <li className="bg-green-300 px-3 py-1.5 rounded-xl" key={idx}>
+          <span className="mr-4 w-[200px]">기술 스택</span>
+          <ul className="flex gap-1 flex-wrap">
+            {projectDetail?.stacks.map((stack, idx) => (
+              <li
+                className="bg-gray-700 inline-block text-white whitespace-nowrap px-3 py-1.5 rounded-3xl"
+                key={idx}
+              >
                 {stack}
               </li>
             ))}
@@ -42,7 +55,7 @@ const ProjectDetail = ({ projectDetail }) => {
             <p>
               :
               <span className="font-bold">
-                {projectDetail.classes.frontend}
+                {projectDetail?.classes.frontend}
               </span>
               명
             </p>
@@ -51,7 +64,9 @@ const ProjectDetail = ({ projectDetail }) => {
             <p>백엔드 </p>
             <p>
               :
-              <span className="font-bold">{projectDetail.classes.backend}</span>
+              <span className="font-bold">
+                {projectDetail?.classes.backend}
+              </span>
               명
             </p>
           </li>
@@ -60,7 +75,7 @@ const ProjectDetail = ({ projectDetail }) => {
             <p>
               :
               <span className="font-bold">
-                {projectDetail.classes.designer}
+                {projectDetail?.classes.designer}
               </span>
               명
             </p>
@@ -70,7 +85,7 @@ const ProjectDetail = ({ projectDetail }) => {
             <p>
               :
               <span className="font-bold">
-                {projectDetail.classes.fullstack}
+                {projectDetail?.classes.fullstack}
               </span>
               명
             </p>
@@ -80,7 +95,7 @@ const ProjectDetail = ({ projectDetail }) => {
         <div className=" w-full mt-10">
           <h2>소개글</h2>
           <span className="whitespace-pre-line break-all">
-            {projectDetail.content}
+            {projectDetail?.content}
           </span>
         </div>
 

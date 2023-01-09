@@ -1,6 +1,6 @@
 export interface IProject {
-  recentQuestId?: number;
-  mainQuestId?: number;
+  recentQuestId: number;
+  mainQuestId: number;
   bookmarkCnt: number;
   classes: {
     frontend: number;
