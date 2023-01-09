@@ -15,3 +15,4 @@ Learned
  + getStaticPath랑 getStaticProps 사용법
  + usequery에서 queryFn에서 return을 해주지 않아서 값이 undefined가 되는 오류가 있었다. return필수.
  + 항상최신화가 필요하지 않는 곳에서는 stale time을 줘서 페이지를 리패칭하지 않도록하자.
+ + 이미지 태그안에 src는 undefined가 뜨면 안되서 이부분 한번 체크해야함.
