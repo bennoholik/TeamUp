@@ -8,6 +8,9 @@ const nextConfig = {
       "lh3.googleusercontent.com",
     ],
   },
+  publicRuntimeConfig: {
+    backendUrl: process.env.REACT_APP_API_BASEURL,
+  },
 };
 
 module.exports = nextConfig;

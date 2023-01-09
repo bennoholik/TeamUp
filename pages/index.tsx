@@ -1,9 +1,12 @@
+import { dehydrate, QueryClient } from "@tanstack/react-query";
 import Head from "next/head";
 import Image from "next/image";
 import InfoSlider from "../components/Main/InfoSlider";
 import MainPageListing from "../components/Main/MainPageListing";
+import { mainpageApi } from "../core/api/apis";
+import { IProject } from "../core/types/projectType";
 
-export default function Home({ popularList, recentList }) {
+export default function Home() {
   return (
     <>
       <Head>
@@ -13,22 +16,30 @@ export default function Home({ popularList, recentList }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <InfoSlider />
-      <MainPageListing popularList={popularList} recentList={recentList} />
-      {/* <MainPageListing pList={recentList} /> */}
+      <MainPageListing />
     </>
   );
 }
 
 export async function getStaticProps() {
-  const popularProject = await fetch("https://g10000.shop/api/quests/main");
-  const recentProject = await fetch("https://g10000.shop/api/quests/recent");
-  const popularList = await popularProject.json();
-  const recentList = await recentProject.json();
-  console.log("re", recentList);
+  // const { data: popularList } = await mainpageApi.getPopularList();
+  // const { data: recentList } = await mainpageApi.getRecentList();
+
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery(["popular"], () =>
+    mainpageApi.getPopularList()
+  );
+  await queryClient.prefetchQuery(["recent"], () =>
+    mainpageApi.getRecentList()
+  );
+
+  // const popularList = await popularProject.json();
+  // const recentList = await recentProject.json();
+  // console.log("re", recentList);
   return {
     props: {
-      popularList,
-      recentList,
+      dehydratedState: dehydrate(queryClient),
     },
   };
 }

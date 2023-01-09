@@ -1,7 +1,10 @@
+import Link from "next/link";
+import { mainPageQueries } from "../../core/api/mainPageQueries";
 import PostCard from "../Card";
 
-const MainPageListing = ({ popularList, recentList }) => {
-  const data = [1, 2, 3];
+const MainPageListing = () => {
+  const { data: popularList } = mainPageQueries.useGetPopularList();
+  const { data: recentList } = mainPageQueries.useGetRecentList();
 
   return (
     <>
@@ -9,8 +12,10 @@ const MainPageListing = ({ popularList, recentList }) => {
         <h2 className="font-bold text-2xl">지금 가장 인기있는 프로젝트</h2>
 
         <div className="flex flex-wrap gap-10 mt-20 justify-center items-center">
-          {popularList.map((pl) => (
-            <PostCard key={pl.mainQuetId} pList={pl} />
+          {popularList?.map((pl) => (
+            <Link href={`project/${pl.mainQuestId}`} key={pl.mainQuestId}>
+              <PostCard key={pl.mainQuestId} pList={pl} />
+            </Link>
           ))}
         </div>
       </div>
@@ -18,8 +23,10 @@ const MainPageListing = ({ popularList, recentList }) => {
         <h2 className="font-bold text-2xl">최근에 등록된 프로젝트</h2>
 
         <div className="flex flex-wrap gap-10 mt-20 justify-center items-center">
-          {recentList.map((rl) => (
-            <PostCard key={rl.recentQuetId} pList={rl} />
+          {recentList?.map((rl) => (
+            <Link href={`project/${rl.recentQuestId}`} key={rl.mainQuestId}>
+              <PostCard key={rl.recentQuestId} pList={rl} />
+            </Link>
           ))}
         </div>
       </div>

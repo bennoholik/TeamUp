@@ -11,7 +11,12 @@ import { RecoilRoot } from "recoil";
 import Footer from "../components/Footer";
 
 export default function App({ Component, pageProps }: AppProps) {
-  const [queryClient] = React.useState(() => new QueryClient());
+  const [queryClient] = React.useState(
+    () =>
+      new QueryClient({
+        defaultOptions: { queries: { refetchOnWindowFocus: false } },
+      })
+  );
 
   return (
     <RecoilRoot>

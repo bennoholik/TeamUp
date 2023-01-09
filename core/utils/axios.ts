@@ -4,13 +4,16 @@ import axios, {
   AxiosRequestConfig,
   // AxiosResponse,
 } from "axios";
+import getConfig from "next/config";
 import { getCookieToken } from "./cookie";
+
+const {publicRuntimeConfig}=getConfig();
 
 
 
 export const instance = axios.create({
   withCredentials: true,
-  baseURL: process.env.REACT_APP_API_BASEURL,
+  baseURL: publicRuntimeConfig.backendUrl,
   headers: {
     "content-type": "application/json;charset=UTF-8",
     accept: "application/json,",

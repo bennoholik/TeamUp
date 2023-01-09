@@ -4,8 +4,8 @@ const PostCard = ({ pList }) => {
   return (
     <div className="bg-white border shadow-lg w-[350px] h-[350px] rounded-2xl">
       <div className="mx-8 pt-10">
-        <h2 className="font-bold text-lg truncate">{pList?.title}</h2>
-        <span className="text-sm">기간 - {pList?.duration}</span>
+        <h2 className="font-bold text-xl truncate">{pList?.title}</h2>
+        <span className="text-sm">기간 - {pList?.duration}주</span>
       </div>
       <div className="h-[120px] mx-8 mt-4 line-clamp-1 text-ellipsis overflow-hidden">
         <p className="text-sm text-gray-300">{pList?.content}</p>
