@@ -4,3 +4,7 @@ export const mainpageApi = {
  getPopularList : async () => {const {data} = await instance.get("api/quests/main"); return data},
  getRecentList : async () => {const {data} =  await instance.get("api/quests/recent"); ; return data}
 }
+
+export const projectApi = {
+  getProjectList : async () => {const {data} = await instance.get("api/quests"); return data}
+}

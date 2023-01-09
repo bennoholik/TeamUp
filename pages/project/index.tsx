@@ -1,10 +1,12 @@
+import { dehydrate, QueryClient } from "@tanstack/react-query";
 import Head from "next/head";
 import InfoSlider from "../../components/Main/InfoSlider";
 import CreateBtn from "../../components/Project/Create/CreateBtn";
 import Filter from "../../components/Project/Filter";
 import List from "../../components/Project/List";
+import { mainpageApi, projectApi } from "../../core/api/apis";
 
-export default function ProjectList({ projectList }) {
+export default function ProjectList() {
   return (
     <>
       <Head>
@@ -15,19 +17,21 @@ export default function ProjectList({ projectList }) {
       </Head>
       <InfoSlider />
       <Filter />
-      <List projectList={projectList} />
+      <List />
       <CreateBtn />
     </>
   );
 }
 
 export async function getStaticProps() {
-  const data = await fetch("https://g10000.shop/api/quests");
-  const projectList = await data.json();
-  console.log(projectList);
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery(["projectList"], () =>
+    projectApi.getProjectList()
+  );
   return {
     props: {
-      projectList,
+      dehydratedState: dehydrate(queryClient),
     },
   };
 }
