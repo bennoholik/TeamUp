@@ -1,21 +1,24 @@
 import Image from "next/image";
+import { IProject } from "../core/types/projectType";
 
-const PostCard = ({ pList }) => {
+const PostCard = ({ pList }: { pList: IProject }) => {
   return (
     <div className="bg-white border shadow-lg w-[350px] h-[350px] rounded-2xl">
       <div className="mx-8 pt-10">
         <h2 className="font-bold text-xl truncate">{pList?.title}</h2>
         <span className="text-sm">기간 - {pList?.duration}주</span>
       </div>
-      <div className="h-[120px] mx-8 mt-4 line-clamp-1 text-ellipsis overflow-hidden">
-        <p className="text-sm text-gray-300">{pList?.content}</p>
+      <div className=" mx-8 mt-4">
+        <p className="text-sm  h-[120px] text-gray-300 text-ellipsis overflow-hidden">
+          {pList?.content}
+        </p>
       </div>
 
       <div className="mx-8 pt-4">
         <ul className="h-[35px] flex gap-x-3 overflow-hidden">
           {pList?.stacks.map((stack, idx) => (
             <li
-              className="bg-gray-700 text-white px-3 py-1.5 rounded-3xl"
+              className="bg-gray-700 inline-block text-white whitespace-nowrap px-3 py-1.5 rounded-3xl"
               key={idx}
             >
               {stack}

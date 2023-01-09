@@ -1,10 +1,8 @@
 import { dehydrate, QueryClient } from "@tanstack/react-query";
 import Head from "next/head";
-import Image from "next/image";
 import InfoSlider from "../components/Main/InfoSlider";
 import MainPageListing from "../components/Main/MainPageListing";
 import { mainpageApi } from "../core/api/apis";
-import { IProject } from "../core/types/projectType";
 
 export default function Home() {
   return (
