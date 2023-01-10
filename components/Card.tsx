@@ -3,7 +3,7 @@ import { IProject } from "../core/types/projectType";
 
 const PostCard = ({ pList }: { pList: IProject }) => {
   return (
-    <div className="bg-white border shadow-lg w-[350px] h-[350px] rounded-2xl">
+    <div className="bg-white border shadow-lg w-[350px] h-[350px] max_md:w-[90vw] rounded-2xl">
       <div className="mx-8 pt-10">
         <h2 className="font-bold text-xl truncate">{pList?.title}</h2>
         <span className="text-sm">기간 - {pList?.duration}주</span>

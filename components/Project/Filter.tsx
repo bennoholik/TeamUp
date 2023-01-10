@@ -1,11 +1,11 @@
 const Filter = () => {
   return (
-    <div className="2xl:max-w-[1100px]  mx-auto">
+    <div className="xl:max-w-[1200px]  mx-auto">
       <div className="mx-10 my-10 flex justify-between">
         <h1 className="font-bold text-2xl">전체 &gt; </h1>
         <input />
       </div>
-      <div className="flex justify-between px-10 max_sm:hidden">
+      <div className="flex justify-between px-10 max_md:hidden">
         <div className="flex gap-x-4 max_sm:hidden">
           <span className="border px-6 py-1 border-gray-200 text-gray-800 rounded-md">
             스택 &gt;{" "}
