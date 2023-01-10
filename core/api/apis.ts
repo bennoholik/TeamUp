@@ -9,3 +9,10 @@ export const projectApi = {
   getProjectList : async () => {const {data} = await instance.get("api/quests"); return data},
   getProjectDetail : async (projectId:string) => {const {data} = await instance.get(`api/quests/${projectId}`); return data}
 }
+
+export const commentApi = {
+  getCommentList :async (projectId:string) => {
+    const {data} = await instance.get(`api/quests/${projectId}/comments`); 
+    return data
+  }
+}
