@@ -9,6 +9,7 @@ import {
 } from "@tanstack/react-query";
 import { RecoilRoot } from "recoil";
 import Footer from "../components/Footer";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 export default function App({ Component, pageProps }: AppProps) {
   const [queryClient] = React.useState(
@@ -26,6 +27,7 @@ export default function App({ Component, pageProps }: AppProps) {
           <Component {...pageProps} />
           <Footer />
         </Hydrate>
+        <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </RecoilRoot>
   );

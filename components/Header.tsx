@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Header = () => {
   return (
-    <nav className="2xl:max-w-[1280px] w-full flex justify-between mx-auto py-8 px-4 ">
+    <nav className="xl:max-w-[1130px] w-full flex justify-between mx-auto py-8 px-4 ">
       <div className="flex gap-x-3">
         <Link href={"/"} className="font-bold">
           TeamUp
