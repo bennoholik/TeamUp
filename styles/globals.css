@@ -13,3 +13,7 @@
 body {
   margin: 0 auto;
 }
+
+*::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+}

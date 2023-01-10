@@ -2,6 +2,7 @@ import { dehydrate, QueryClient } from "@tanstack/react-query";
 import Head from "next/head";
 import InfoSlider from "../components/Main/InfoSlider";
 import MainPageListing from "../components/Main/MainPageListing";
+import QutoesGreeting from "../components/Main/QuotesGreeting";
 import { mainpageApi } from "../core/api/apis";
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
       </Head>
       <InfoSlider />
       <MainPageListing />
+      <QutoesGreeting />
     </>
   );
 }
