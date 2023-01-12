@@ -1,4 +1,5 @@
 import Image from "next/image";
+import SubComment from "./SubComment";
 
 const EachComment = ({ comment }) => {
   return (
@@ -17,7 +18,10 @@ const EachComment = ({ comment }) => {
       <div className="my-6">
         <p>{comment.content}</p>
       </div>
-      <hr className="" />
+      {comment.subCommentList.map((subcomment) => (
+        <SubComment subComment={subcomment} />
+      ))}
+      <hr className="mb-10" />
     </div>
   );
 };
