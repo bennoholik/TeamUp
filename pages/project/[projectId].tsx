@@ -1,7 +1,7 @@
 import { dehydrate, QueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import Head from "next/head";
-import CommentSection from "../../components/Project/Detail/CommentList";
+import CommentSection from "../../components/Project/Detail/Comment/CommentList";
 import ProjectDetail from "../../components/Project/Detail/Detail";
 import { commentApi, projectApi } from "../../core/api/apis";
 import { IProject } from "../../core/types/projectType";
