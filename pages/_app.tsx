@@ -22,7 +22,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <RecoilRoot>
       <QueryClientProvider client={queryClient}>
-        <Hydrate state={pageProps.degydratedState}>
+        <Hydrate state={pageProps.dehydratedState}>
           <Header />
           <Component {...pageProps} />
           <Footer />

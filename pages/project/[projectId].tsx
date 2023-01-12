@@ -1,8 +1,9 @@
 import { dehydrate, QueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import Head from "next/head";
+import CommentSection from "../../components/Project/Detail/CommentList";
 import ProjectDetail from "../../components/Project/Detail/Detail";
-import { projectApi } from "../../core/api/apis";
+import { commentApi, projectApi } from "../../core/api/apis";
 import { IProject } from "../../core/types/projectType";
 
 const DetailPage = () => {
@@ -15,6 +16,7 @@ const DetailPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ProjectDetail />
+      <CommentSection />
     </>
   );
 };
@@ -45,6 +47,10 @@ export async function getStaticProps({
 
   await queryClient.prefetchQuery(["project", projectId], () => {
     return projectApi.getProjectDetail(projectId);
+  });
+
+  await queryClient.prefetchQuery(["comment", projectId], () => {
+    return commentApi.getCommentList(projectId);
   });
 
   return {
