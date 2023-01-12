@@ -24,3 +24,11 @@ Todos
   
 Learned
 - a 
+
+### 230110
+Todos
+- [ ] 댓글 부분 API 연결
+- [ ] 댓글 부분 작업
+  
+Learned
+- a 
