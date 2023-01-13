@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import React from "react";
 import { commentQueries } from "../../../../core/api/commentQueries";
+import ModalPortal from "../../../MordalPortal";
 import EachComment from "./Comment";
 
 const CommentSection = () => {
@@ -28,6 +29,15 @@ const CommentSection = () => {
           </button>
         </div>
       </div>
+
+      {/* <ModalPortal selector="#portal">
+        <div className="w-full h-screen fixed  flex justify-center items-center ">
+          <div className="w-full h-screen absolute z-40 bg-black opacity-10" />
+          <div className="bg-white z-50 w-[300px] h-[400px]">
+            <h1 className="text-black">hello</h1>
+          </div>
+        </div>
+      </ModalPortal> */}
 
       <div className="mt-8">
         {commentList?.map((comment) => (
