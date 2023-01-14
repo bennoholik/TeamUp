@@ -2,7 +2,7 @@ import { Cookies } from "react-cookie";
 
 const cookies = new Cookies();
 
-export const setAccessToken = (accessToken: string) => {
+export const setAccessToken = (accessToken: string|undefined) => {
   const today = new Date();
   const expireDate = today.setDate(today.getDate() + 7);
 

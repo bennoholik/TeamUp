@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import React from "react";
 import { commentQueries } from "../../../../core/api/commentQueries";
+import ModalPortal from "../../../MordalPortal";
 import EachComment from "./Comment";
 
 const CommentSection = () => {

@@ -16,3 +16,10 @@ export const commentApi = {
     return data
   }
 }
+
+export const userinfoApi = {
+  getUserInfo: async () => {
+    const { data } = await instance.get(`/api/members/status`);
+    return data;
+  }
+}

@@ -23,7 +23,6 @@ const DetailPage = () => {
 
 export async function getStaticPaths() {
   const projects = await projectApi.getProjectList();
-  console.log(projects);
 
   const paths = projects.map((pj: IProject) => ({
     params: { projectId: pj.questId.toString() },
