@@ -22,7 +22,7 @@ const MainPageListing = () => {
       <div className="flex justify-center items-center my-20 flex-col">
         <h2 className="font-bold text-2xl">최근에 등록된 프로젝트</h2>
 
-        <div className="flex flex-wrap gap-10 mt-20 justify-center items-center">
+        <div className="flex flex-wrap gap-10 mt-20 justify-center items-center max_xl:flex-col">
           {recentList?.map((rl) => (
             <Link href={`project/${rl.recentQuestId}`} key={rl.recentQuestId}>
               <PostCard key={rl.recentQuestId} pList={rl} />

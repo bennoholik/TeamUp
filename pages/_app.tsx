@@ -24,8 +24,10 @@ export default function App({ Component, pageProps }: AppProps) {
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
           <Header />
-          <Component {...pageProps} />
-          <Footer />
+          <div className="mt-[88px]">
+            <Component {...pageProps} />
+            <Footer />
+          </div>
         </Hydrate>
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>

@@ -4,7 +4,7 @@ import ModalPortal from "../MordalPortal";
 const SignInModal = ({ setModalState }) => {
   return (
     <ModalPortal selector="#portal">
-      <div className="w-full h-screen fixed  flex justify-center items-center ">
+      <div className="w-full h-screen fixed flex justify-center items-center z-40 ">
         <div
           className="w-full h-screen absolute z-40 bg-black opacity-30"
           onClick={() => setModalState(false)}
