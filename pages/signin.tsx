@@ -2,6 +2,8 @@ import { useReducer } from "react";
 import { instance } from "../core/utils/axios";
 import { setAccessToken } from "../core/utils/cookie";
 import Router from "next/router";
+import { useSetRecoilState } from "recoil";
+import { LoginState } from "../core/recoil/atoms/loginAtoms";
 
 const SignIn = () => {
   const [input, updateInput] = useReducer(
@@ -61,6 +63,7 @@ const SignIn = () => {
       validation: false,
     }
   );
+  const setLoginStatus = useSetRecoilState(LoginState);
 
   const onSignIn = async () => {
     if (input.validation === true) {
@@ -72,6 +75,7 @@ const SignIn = () => {
         });
         console.log(data);
         setAccessToken(data.headers.authorization);
+        setLoginStatus(true);
         Router.push("/"); //next js에서 페이지이동 방식중 하나.
         // window.location.replace("/");
       } catch (error) {

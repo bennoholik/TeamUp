@@ -27,15 +27,22 @@ Learned
 
 ### 230110
 Todos
-- [ ] 댓글 부분 API 연결
-- [ ] 댓글 부분 작업
+- [x] 댓글 부분 API 연결
+- [x] 댓글 부분 작업
   
 Learned
 - a 
 
+### 중간에 바빠서 작업 못함 ㅠㅠ
 
+### 230114
+Todos
+- [ ] 로그인 관련 작업
+
+Learned
++ Hydration Error 해결법.
 Error: Hydration failed because the initial UI does not match what was rendered on the server.
 서버에서 정의된 UI 와 달라서 생기는 문제.
 getCookieToken이 클라이언트 사이드에서만 가지고 올수있기때문에 생기는 문제이다. UseEffect를 활용하여 해결할수있다.
-
-https://javascript.plainenglish.io/how-to-solve-hydration-error-in-next-js-a50ec54bfc02
+  + https://javascript.plainenglish.io/how-to-solve-hydration-error-in-next-js-a50ec54bfc02
+  + https://nextjs.org/docs/messages/react-hydration-error
