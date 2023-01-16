@@ -2,12 +2,12 @@ import React from "react";
 
 interface Props {
   duration: number;
-  setDuration: React.Dispatch<React.SetStateAction<number>>;
+  setDuration: React.Dispatch<any>;
 }
 export const DurationRange = ({ duration, setDuration }: Props) => {
   const onDurationHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (parseInt(e.target.value) >= 0) {
-      setDuration(parseInt(e.target.value));
+      setDuration({ duration: parseInt(e.target.value) });
     }
   };
   return (

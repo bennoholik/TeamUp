@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="2xl:max-w-[1280px] w-full flex justify-between mx-auto py-8 px-4 p-4 bg-white sm:p-6 ">
+    <footer className="xl:max-w-[1130px] w-full flex justify-between mx-auto py-8 px-4 p-4 bg-white sm:p-6 ">
       <div className="flex flex-row">
         <div className="flex flex-col">
           <a href="#" className="flex items-center">
