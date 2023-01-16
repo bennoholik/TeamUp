@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { IProject } from "../types/projectType";
 import { mainpageApi, projectApi } from "./apis";
 
@@ -19,5 +19,9 @@ export const projectQueries = {
   return useQuery<IProject>(["project",projectId], ()=>{
     return projectApi.getProjectDetail(projectId)
   })
+ },
+ useSubmitProject: () => {
+  return useMutation(async (postInfo) => await projectApi.submitProject(postInfo));
  }
+
 }
