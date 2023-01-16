@@ -9,7 +9,7 @@ const Postingform = () => {
   return (
     <div className="max-w-[700px] w-full mx-auto py-8 px-6 flex flex-col gap-y-10">
       <div className="flex flex-col gap-y-8">
-        <h1 className="text-3xl max_sm:text-xl font-bold">
+        <h1 className="text-3xl max_sm:text-[24px] font-bold">
           1. 프로젝트의 정보를 입력해주세요.
         </h1>
         <hr />
@@ -70,7 +70,7 @@ const Postingform = () => {
         </div>
       </div>
       <div className="flex flex-col gap-y-6">
-        <h1 className="text-3xl font-bold max_sm:text-xl">
+        <h1 className="text-3xl font-bold max_sm:text-[24px]">
           2. 프로젝트에 대해 소개 해주세요.
         </h1>
         <hr />
