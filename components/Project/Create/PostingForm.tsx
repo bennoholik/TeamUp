@@ -47,8 +47,7 @@ const Postingform = () => {
         title: input.title,
       };
       submitPost(postInfo).then(() => {
-        queryClient.invalidateQueries(["Postsdetail"]);
-        queryClient.invalidateQueries(["filterlist"]);
+        queryClient.invalidateQueries(["projectList"]);
         router.push("/project");
       });
     } else {
