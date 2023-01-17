@@ -3,7 +3,7 @@ import { IProject } from "../core/types/projectType";
 
 const PostCard = ({ pList }: { pList: IProject }) => {
   return (
-    <div className="bg-white border shadow-lg max_sm:mb-6 h-[350px]  rounded-2xl">
+    <div className="bg-white border shadow-lg max_sm:mb-6 h-[350px] rounded-2xl">
       <div className="mx-8 pt-10">
         <h2 className="font-bold text-xl truncate">{pList?.title}</h2>
         <span className="text-sm">기간 - {pList?.duration}주</span>
@@ -14,9 +14,9 @@ const PostCard = ({ pList }: { pList: IProject }) => {
         </p>
       </div>
 
-      <div className="mx-8 pt-4">
-        <ul className="h-[35px] flex gap-x-3 overflow-hidden">
-          {pList?.stacks.map((stack, idx) => (
+      <div className="mx-8 pt-4 w-[100%]">
+        <ul className="h-[35px] w-[80%] flex gap-x-3 overflow-x-hidden">
+          {pList?.stacks.slice(0, 2).map((stack, idx) => (
             <li
               className="bg-gray-700 inline-block text-white whitespace-nowrap px-3 py-1.5 rounded-3xl"
               key={idx}
@@ -24,6 +24,11 @@ const PostCard = ({ pList }: { pList: IProject }) => {
               {stack}
             </li>
           ))}
+          {pList?.stacks.length > 2 ? (
+            <li className="bg-gray-700 inline-block text-white whitespace-nowrap px-3 py-1.5 rounded-3xl">
+              {pList.stacks.length - 2} more
+            </li>
+          ) : null}
         </ul>
       </div>
       <div className="mx-7 mt-6">

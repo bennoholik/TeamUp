@@ -1,12 +1,12 @@
 import { useQueryClient } from "@tanstack/react-query";
 import classNames from "classnames";
+import { useRouter } from "next/router";
 import { useReducer, useState } from "react";
 import { projectQueries } from "../../../core/api/projectQueries";
 import { DurationRange } from "../DurationRange";
 import { StackListDropdwon } from "../StackListDropDown";
 
 const Postingform = () => {
-  const [duration, setDuration] = useState(0);
   const [stacks, setStacks] = useState<string[]>([]);
 
   const [input, updateInput] = useReducer(
@@ -26,36 +26,35 @@ const Postingform = () => {
       },
     }
   );
+  const router = useRouter();
 
   const queryClient = useQueryClient();
   const { mutateAsync: submitPost } = projectQueries.useSubmitProject();
 
   // 등록하기 버튼 catch error 해야함
   const onSubmitHandler = async () => {
-    // if (content && title && backend + frontend + designer + fullstack > 0) {
+    const { title, content, duration, classes } = input;
+    const { frontend, backend, designer, fullstack } = classes;
+    if (content && title && backend + frontend + designer + fullstack > 0) {
+      const postInfo = {
+        backend: input.classes.backend,
+        content: input.content,
+        designer: input.classes.designer,
+        duration: input.duration,
+        frontend: input.classes.frontend,
+        fullstack: input.classes.fullstack,
+        stacks: stacks,
+        title: input.title,
+      };
+      submitPost(postInfo).then(() => {
+        queryClient.invalidateQueries(["Postsdetail"]);
+        queryClient.invalidateQueries(["filterlist"]);
+        router.push("/project");
+      });
+    } else {
+      alert("필요한 양식이 채워지지 않았습니다.");
+    }
 
-    const postInfo = {
-      backend: input.classes.backend,
-      content: input.content,
-      designer: input.classes.designer,
-      duration: input.duration,
-      frontend: input.classes.frontend,
-      fullstack: input.classes.fullstack,
-      stacks: stacks,
-      title: input.title,
-    };
-
-    console.log(postInfo);
-
-    submitPost(postInfo).then(() => {
-      queryClient.invalidateQueries(["Postsdetail"]);
-      queryClient.invalidateQueries(["filterlist"]);
-    });
-    // setAlertContent("게시글 작성 완료!");
-    // tg(!tgVal);
-    // navigate("/search");
-    //   return;
-    // }
     // if (!title) {
     //   setAlertContent("제목을 입력해주세요!");
     //   tg(!tgVal);
