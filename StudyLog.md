@@ -1,4 +1,4 @@
-# TeamUp 프로젝트를 하면서 배운점 정리!
+# TeamUp 프로젝트를 하면서 했던 것과 배운점 정리!
 
 
 ### 230106
@@ -21,23 +21,19 @@ Learned
 ### 230109
 Todos
 - [ ] filter CSS 부분 작업
-  
-Learned
-- a 
+
 
 ### 230110
 Todos
 - [x] 댓글 부분 API 연결
 - [x] 댓글 부분 작업
   
-Learned
-- a 
 
 ### 중간에 바빠서 작업 못함 ㅠㅠ
 
 ### 230114
 Todos
-- [ ] 로그인 관련 작업
+- [x] 로그인 관련 작업
 
 Learned
 + Hydration Error 해결법.
@@ -46,3 +42,10 @@ Error: Hydration failed because the initial UI does not match what was rendered 
 getCookieToken이 클라이언트 사이드에서만 가지고 올수있기때문에 생기는 문제이다. UseEffect를 활용하여 해결할수있다.
   + https://javascript.plainenglish.io/how-to-solve-hydration-error-in-next-js-a50ec54bfc02
   + https://nextjs.org/docs/messages/react-hydration-error
+
+### 230115~230117
+- [x] 로그인 API 연결
+- [x] flex로 리스팅 하던것을 반응형 Grid로 변환
+- [x] 게시글 작성
+- [x] 필터 디자인 수정
+- [x] 로그인 후 Header 부분 조건부 렌더링
