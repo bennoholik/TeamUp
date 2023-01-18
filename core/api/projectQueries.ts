@@ -22,6 +22,9 @@ export const projectQueries = {
  },
  useSubmitProject: () => {
   return useMutation(async (postInfo) => await projectApi.submitProject(postInfo));
+ },
+ useDeleteProject: () => {
+  return useMutation(async (projectId:string) => await projectApi.deleteProject(projectId))
  }
 
 }

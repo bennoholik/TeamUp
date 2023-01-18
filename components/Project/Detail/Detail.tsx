@@ -1,3 +1,4 @@
+import { useQueryClient } from "@tanstack/react-query";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { projectQueries } from "../../../core/api/projectQueries";
@@ -10,13 +11,26 @@ const ProjectDetail = () => {
   const { data: projectDetail } = projectQueries.useGetProjectDetail(
     String(projectId)
   );
+  const queryClient = useQueryClient();
+  const { mutateAsync: deleteProject } = projectQueries.useDeleteProject();
+
+  const onDeleteProject = () => {
+    deleteProject(projectId).then(() => {
+      queryClient.invalidateQueries(["projectList"]);
+      router.push("/project");
+    });
+  };
 
   return (
     <div className="max-w-[700px] min-h-screen w-full mx-auto py-8 px-6">
-      <h1 className="font-bold text-[35px] max_sm:text-[20px]">
-        {" "}
-        {projectDetail?.title}
-      </h1>
+      <div className="flex justify-between">
+        <h1 className="font-bold text-[35px] max_sm:text-[20px]">
+          {" "}
+          {projectDetail?.title}
+        </h1>
+        <button onClick={onDeleteProject}>삭제</button>
+      </div>
+
       <div className="flex justify-between content-center mt-6">
         <div className="flex gap-x-3 h-[40px]">
           <Image
