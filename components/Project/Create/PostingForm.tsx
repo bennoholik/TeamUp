@@ -10,7 +10,7 @@ const Postingform = () => {
   const [stacks, setStacks] = useState<string[]>([]);
 
   const [input, updateInput] = useReducer(
-    (prev, next) => {
+    (prev: any, next: any) => {
       const newInput = { ...prev, ...next };
       return newInput;
     },
