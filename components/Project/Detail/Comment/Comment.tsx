@@ -1,7 +1,7 @@
 import Image from "next/image";
 import SubComment from "./SubComment";
 
-const EachComment = ({ comment }) => {
+const EachComment = ({ comment }: any) => {
   return (
     <div>
       <div className="flex gap-2 items-center">
@@ -18,8 +18,8 @@ const EachComment = ({ comment }) => {
       <div className="my-6">
         <p>{comment.content}</p>
       </div>
-      {comment.subCommentList.map((subcomment) => (
-        <SubComment subComment={subcomment} />
+      {comment.subCommentList.map((subcomment: any) => (
+        <SubComment key={subcomment.subCommentId} subComment={subcomment} />
       ))}
       <hr className="mb-10" />
     </div>
