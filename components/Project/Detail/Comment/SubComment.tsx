@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const SubComment = ({ subComment }) => {
+const SubComment = ({ subComment }: any) => {
   return (
     <div className="flex">
       <div className="w-4 h-4 border-l-2 border-b-2 mr-4"></div>

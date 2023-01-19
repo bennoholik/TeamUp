@@ -1,7 +1,7 @@
 import Link from "next/link";
 import ModalPortal from "../MordalPortal";
 
-const SignInModal = ({ setModalState }) => {
+const SignInModal = ({ setModalState }: any) => {
   return (
     <ModalPortal selector="#portal">
       <div className="w-full h-screen fixed flex justify-center items-center z-40 ">

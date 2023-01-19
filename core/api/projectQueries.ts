@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { IProject } from "../types/projectType";
+import { IpostingProject, IProject } from "../types/projectType";
 import { mainpageApi, projectApi } from "./apis";
 
 export const projectQueries = {
@@ -21,7 +21,7 @@ export const projectQueries = {
   })
  },
  useSubmitProject: () => {
-  return useMutation(async (postInfo) => await projectApi.submitProject(postInfo));
+  return useMutation(async (postInfo: IpostingProject) => await projectApi.submitProject(postInfo));
  },
  useDeleteProject: () => {
   return useMutation(async (projectId:string) => await projectApi.deleteProject(projectId))

@@ -25,7 +25,7 @@ const Header = () => {
     if (isSuccess) {
       setLoginInfo(userinfo);
     }
-  }, [isSuccess, userinfo]);
+  }, [isSuccess, setLoginInfo, userinfo]);
 
   useEffect(() => {
     if (getCookieToken() || loginStatus === true) {

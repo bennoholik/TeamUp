@@ -15,11 +15,14 @@ const ProjectDetail = () => {
   const { mutateAsync: deleteProject } = projectQueries.useDeleteProject();
 
   const onDeleteProject = () => {
-    deleteProject(projectId).then(() => {
+    if (!projectId) return;
+    deleteProject(String(projectId)).then(() => {
       queryClient.invalidateQueries(["projectList"]);
       router.push("/project");
     });
   };
+
+  const htmlcode = "<p>hello world</p>";
 
   return (
     <div className="max-w-[700px] min-h-screen w-full mx-auto py-8 px-6">
@@ -30,7 +33,7 @@ const ProjectDetail = () => {
         </h1>
         <button onClick={onDeleteProject}>삭제</button>
       </div>
-
+      <div dangerouslySetInnerHTML={{ __html: htmlcode }}></div>
       <div className="flex justify-between content-center mt-6">
         <div className="flex gap-x-3 h-[40px]">
           <Image

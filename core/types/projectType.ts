@@ -21,3 +21,14 @@ export interface IProject {
   profileImg: string;
   complete: boolean;
 }
+
+export interface IpostingProject {
+    backend: number;
+    content: string;
+    designer: number;
+    duration: number;
+    frontend: number;
+    fullstack: number;
+    stacks: string[];
+    title: string;
+}

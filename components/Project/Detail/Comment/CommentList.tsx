@@ -31,7 +31,7 @@ const CommentSection = () => {
       </div>
 
       <div className="mt-8">
-        {commentList?.map((comment) => (
+        {commentList?.map((comment: any) => (
           <EachComment key={comment.commentId} comment={comment} />
         ))}
       </div>
