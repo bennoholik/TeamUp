@@ -7,7 +7,7 @@ import { LoginState } from "../core/recoil/atoms/loginAtoms";
 
 const SignIn = () => {
   const [input, updateInput] = useReducer(
-    (prev, next) => {
+    (prev: any, next: any) => {
       const newInput = { ...prev, ...next };
 
       const emailRegex =
