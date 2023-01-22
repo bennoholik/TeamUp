@@ -22,8 +22,6 @@ const ProjectDetail = () => {
     });
   };
 
-  const htmlcode = "<p>hello world</p>";
-
   return (
     <div className="max-w-[700px] min-h-screen w-full mx-auto py-8 px-6">
       <div className="flex justify-between">
@@ -33,7 +31,7 @@ const ProjectDetail = () => {
         </h1>
         <button onClick={onDeleteProject}>삭제</button>
       </div>
-      <div dangerouslySetInnerHTML={{ __html: htmlcode }}></div>
+
       <div className="flex justify-between content-center mt-6">
         <div className="flex gap-x-3 h-[40px]">
           <Image
@@ -120,9 +118,11 @@ const ProjectDetail = () => {
 
         <div className=" w-full mt-20">
           <h2 className="font-bold text-gray-800 text-2xl mb-8">소개글</h2>
-          <span className="whitespace-pre-line break-all">
-            {projectDetail?.content}
-          </span>
+
+          <div
+            className="whitespace-pre-line break-all"
+            dangerouslySetInnerHTML={{ __html: projectDetail?.content }}
+          ></div>
         </div>
 
         {/* <button className=" bg-gray-300 p-4">참가신청</button> */}

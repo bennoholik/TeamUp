@@ -28,7 +28,7 @@ export const DurationRange = ({ duration, setDuration }: Props) => {
         value={duration}
         name="duration"
         onChange={onDurationHandler}
-        className="w-full h-[3px] range-sm bg-gray-600 accent-gray-600"
+        className="w-full h-[3px] translate-y-[-200%] range-sm bg-gray-600 accent-gray-600"
       />
     </div>
   );

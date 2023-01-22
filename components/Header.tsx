@@ -38,7 +38,13 @@ const Header = () => {
       <div className="xl:max-w-[1130px] relative flex justify-between mx-auto py-8 px-4">
         <div className="flex gap-x-3">
           <Link href={"/"} className="font-bold">
-            TeamUp
+            <Image
+              alt="temaup logo"
+              src="/TeamUp.png"
+              className="w-[90px] h-[25px]"
+              width={135}
+              height={38}
+            />
           </Link>
           <div className="flex gap-x-4 max_md:hidden">
             <Link href={"/project"}>프로젝트</Link>
