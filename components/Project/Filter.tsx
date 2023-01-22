@@ -2,11 +2,13 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import DurationModal from "./DurationModal";
 import { DurationRange } from "./DurationRange";
+import { StackListDropdwon } from "./StackListDropDown";
 
 const Filter = () => {
   const router = useRouter();
 
   const [duration, setduration] = useState(0);
+  const [stacks, setStacks] = useState<string[]>([]);
 
   return (
     <div className="xl:max-w-[1200px]  mx-auto">
@@ -22,10 +24,16 @@ const Filter = () => {
           <span className="border px-6 py-1 border-gray-200 text-gray-800 rounded-md">
             기간 &gt;{" "}
           </span>
-          <div className="bg-white w-[350px] h-[150px] absolute z-30 top-10 left-[108px] p-4 border rounded-md">
+          {/* <div className="bg-white w-[350px] h-[150px] absolute z-30 top-10 left-[108px] p-4 border rounded-md">
             기간
             <div className="w-[300px] mx-auto">
               <DurationRange duration={duration} setDuration={setduration} />
+            </div>
+          </div> */}
+          <div className="bg-white w-[350px]  absolute z-30 top-10 p-4 border rounded-md">
+            스택
+            <div className="w-[300px] mx-auto">
+              <StackListDropdwon stacks={stacks} setStacks={setStacks} />
             </div>
           </div>
         </div>
