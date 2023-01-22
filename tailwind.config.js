@@ -9,11 +9,11 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        sm: { min: "480px" },
+        sm: { min: "550px" },
         md: { min: "740px" },
         lg: { min: "960px" },
         xl: { min: "1130px" },
-        max_sm: { max: "480px" },
+        max_sm: { max: "550px" },
         max_md: { max: "740px" },
         max_lg: { max: "960px" },
         max_xl: { max: "1130px" },
