@@ -30,7 +30,7 @@ const Filter = () => {
               <DurationRange duration={duration} setDuration={setduration} />
             </div>
           </div> */}
-          <div className="bg-white w-[350px]  absolute z-30 top-10 p-4 border rounded-md">
+          <div className="bg-white w-[350px]  absolute z-30 top-10 p-4 border rounded-md shadow-xl">
             스택
             <div className="w-[300px] mx-auto">
               <StackListDropdwon stacks={stacks} setStacks={setStacks} />
