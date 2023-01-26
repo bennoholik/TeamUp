@@ -1,41 +1,40 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
 import DurationModal from "./DurationModal";
-import { DurationRange } from "./DurationRange";
-import { StackListDropdwon } from "./StackListDropDown";
+import StacksModal from "./StacksModal";
 
 const Filter = () => {
   const router = useRouter();
 
-  const [duration, setduration] = useState(0);
-  const [stacks, setStacks] = useState<string[]>([]);
+  const [stackModalTg, setStackModalTg] = useState(false);
+  const [durationModalTg, setDurationModalTg] = useState(false);
 
   return (
     <div className="xl:max-w-[1200px]  mx-auto">
       <div className="mx-10 my-10 flex justify-between">
         <h1 className="font-bold text-2xl max_md:hidden">전체 &gt; </h1>
-        <input className="border-2 rounded-2xl max_md:w-full h-8" />
+        <input className="border-2 rounded-2xl max_md:w-full h-8 p-2" />
       </div>
       <div className="flex justify-between px-10 max_md:hidden">
         <div className="flex gap-x-4 max_sm:hidden relative">
-          <span className="border px-6 py-1 border-gray-200 text-gray-800 rounded-md">
+          <button
+            className="border px-6 py-1 border-gray-200 text-gray-800 rounded-md"
+            onClick={() => setStackModalTg(true)}
+          >
             스택 &gt;{" "}
-          </span>
-          <span className="border px-6 py-1 border-gray-200 text-gray-800 rounded-md">
+          </button>
+          <button
+            className="border px-6 py-1 border-gray-200 text-gray-800 rounded-md"
+            onClick={() => setDurationModalTg(true)}
+          >
             기간 &gt;{" "}
-          </span>
-          {/* <div className="bg-white w-[350px] h-[150px] absolute z-30 top-10 left-[108px] p-4 border rounded-md">
-            기간
-            <div className="w-[300px] mx-auto">
-              <DurationRange duration={duration} setDuration={setduration} />
-            </div>
-          </div> */}
-          <div className="bg-white w-[350px]  absolute z-30 top-10 p-4 border rounded-md shadow-xl">
-            스택
-            <div className="w-[300px] mx-auto">
-              <StackListDropdwon stacks={stacks} setStacks={setStacks} />
-            </div>
-          </div>
+          </button>
+          {stackModalTg ? (
+            <StacksModal tg={stackModalTg} setTg={setStackModalTg} />
+          ) : null}
+          {durationModalTg ? (
+            <DurationModal tg={durationModalTg} setTg={setDurationModalTg} />
+          ) : null}
         </div>
         <button
           className="border px-6 py-1 border-gray-200 text-gray-800 rounded-md"

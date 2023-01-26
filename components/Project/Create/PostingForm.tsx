@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { useReducer, useState } from "react";
 import { projectQueries } from "../../../core/api/projectQueries";
 import { DurationRange } from "../DurationRange";
-import { StackListDropdwon } from "../StackListDropDown";
+import { StackListDropdown } from "../StackListDropDown";
 
 const Postingform = () => {
   const [stacks, setStacks] = useState<string[]>([]);
@@ -160,7 +160,7 @@ const Postingform = () => {
 
         <div>
           <h2 className="text-xl max_sm:text-lg font-semibold">필요 스택</h2>
-          <StackListDropdwon stacks={stacks} setStacks={setStacks} />
+          <StackListDropdown stacks={stacks} setStacks={setStacks} />
         </div>
         <div>
           <h2 className="text-xl max_sm:text-lg font-semibold">기간</h2>

@@ -23,7 +23,7 @@ const ProjectDetail = () => {
   };
 
   return (
-    <div className="max-w-[700px] min-h-screen w-full mx-auto py-8 px-6">
+    <div className="max-w-[700px]  w-full mx-auto py-8 px-6">
       <div className="flex justify-between">
         <h1 className="font-bold text-[35px] max_sm:text-[20px]">
           {" "}

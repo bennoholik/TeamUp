@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { projectQueries } from "../../core/api/projectQueries";
-import PostCard from "../Card";
+import { projectQueries } from "../../../core/api/projectQueries";
+import PostCard from "../../Card";
 
 const List = () => {
   const { data: projectList } = projectQueries.useGetProjectList();

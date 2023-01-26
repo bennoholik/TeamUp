@@ -6,7 +6,7 @@ interface props {
   setStacks: React.Dispatch<React.SetStateAction<string[]>>;
 }
 // 여기도 컴포넌트 정리 필요할듯
-export const StackListDropdwon = ({ stacks, setStacks }: props) => {
+export const StackListDropdown = ({ stacks, setStacks }: props) => {
   const [FStoggle, setFStoggle] = useState(false);
   const [BStoggle, setBStoggle] = useState(false);
   const [DStoggle, setDStoggle] = useState(false);
