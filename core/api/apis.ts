@@ -13,6 +13,12 @@ export const projectApi = {
   deleteProject : async (projectId: string) => {
     const { data } = await instance.delete(`/api/quests/${projectId}`);
     return data;
+  },
+  getInfiniteProjectList :async (pageParam, filterval) => {
+    const { data } = await instance.get(
+      `/api/quests/searches?page=${pageParam}&size=15&${filterval}`,
+    );
+    return data;
   }
 }
 

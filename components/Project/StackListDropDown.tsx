@@ -44,6 +44,9 @@ export const StackListDropdown = ({ stacks, setStacks }: props) => {
       setStacks((prev) => [...prev, stack]);
     }
   };
+
+  // TODO-필터내용이 있으면 열어 놓기.
+
   return (
     <div className="my-3 pt-1 space-y-6">
       <>

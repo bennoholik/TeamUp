@@ -35,7 +35,7 @@ const Header = () => {
   }, [loginStatus]);
 
   return (
-    <nav className="w-full bg-white fixed top-0 z-10 border-b">
+    <nav className="w-full bg-white fixed top-0 z-40 border-b">
       <div className="xl:max-w-[1130px] relative flex justify-between mx-auto py-8 px-4">
         <div className="flex gap-x-3">
           <Link href={"/"} className="font-bold">
